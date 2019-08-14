@@ -1,0 +1,17 @@
+---  
+   FROM
+   echo "pull the Dockerfile"
+   pull https://pwslab.org/mk/demo-java-project3/blob/master/Dockerfile
+   echo "RUN the Dockerfile"
+   RUN Dockerfile
+   echo"giving docker image name"
+   docker image tag Dockerfile1
+   echo"saving image" 
+   docker image save Dockerfile1
+   echo "Update Software repository"
+   RUN apt-get update
+   FROM 
+   Dockerfile1
+   echo "push the image Dockerfile1 "
+   docker image push  https://pwslab.org/mk/demo-java-project3/container_registry
+---
